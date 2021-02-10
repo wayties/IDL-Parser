@@ -95,7 +95,7 @@ public class BitmaskTypeCode extends MemberedTypeCode
     @Override
     public String getCTypename()
     {
-        StringTemplate st = getCTypenameFromStringTemplate();
+        StringTemplate st = getCppTypenameFromStringTemplate();
         st.setAttribute("name", getCScopedname());
         return st.toString();
     }

@@ -66,7 +66,7 @@ public class TreeNode implements Notebook
 
     public String getCScopedname()
     {
-        if(m_scope.isEmpty())
+        if(m_scope == null || m_scope.isEmpty())
             return m_name;
 
         return m_scope.replace("::", "_") + "_" + m_name;

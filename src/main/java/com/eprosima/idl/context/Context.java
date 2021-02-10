@@ -158,6 +158,9 @@ public class Context
         AnnotationDeclaration optionalann = createAnnotationDeclaration("optional", null);
         optionalann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_BOOLEAN), "true"));
 
+        AnnotationDeclaration flexibleann = createAnnotationDeclaration("flexible", null);
+        flexibleann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_BOOLEAN), "true"));
+
         AnnotationDeclaration positionann = createAnnotationDeclaration("position", null);
         positionann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_USHORT), "-1"));
 
@@ -205,6 +208,9 @@ public class Context
 
         AnnotationDeclaration bit_boundann = createAnnotationDeclaration("bit_bound", null);
         bit_boundann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_USHORT), "-1"));
+
+        AnnotationDeclaration packedann = createAnnotationDeclaration("packed", null);
+        packedann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_BOOLEAN), "true"));
 
         AnnotationDeclaration externalann = createAnnotationDeclaration("external", null);
         externalann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_BOOLEAN), "true"));

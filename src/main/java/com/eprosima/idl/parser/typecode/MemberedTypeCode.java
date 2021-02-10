@@ -54,7 +54,13 @@ public abstract class MemberedTypeCode extends TypeCode
         if(m_scope.isEmpty())
             return m_name;
 
-        return m_scope.replace("::", "_") + "_" + m_name;
+        String newName = "";
+        String[] strs = m_scope.split("::");
+        for (String str : strs) {
+            newName += str.substring(0,1).toUpperCase() + str.substring(1);
+        }
+
+        return newName + "_" + m_name;
     }
 
     public String getJavaScopedname()

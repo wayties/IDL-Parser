@@ -32,7 +32,7 @@ public class PrimitiveTypeCode extends TypeCode
     @Override
     public String getCTypename()
     {
-        return getCTypenameFromStringTemplate().toString();
+        return getCppTypenameFromStringTemplate().toString();
     }
 
     @Override
