@@ -84,6 +84,16 @@ public abstract class MemberedTypeCode extends TypeCode
         return m_scope;
     }
 
+    public String getCScope()
+    {
+        String newScope = "";
+        String[] strs = m_scope.split("::");
+        for (String str : strs) {
+            newScope += str.substring(0,1).toUpperCase() + str.substring(1);
+        }
+        return newScope;
+    }
+
     public boolean getHasScope()
     {
         return !m_scope.isEmpty();
