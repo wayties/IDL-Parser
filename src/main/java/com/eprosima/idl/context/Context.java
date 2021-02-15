@@ -788,10 +788,12 @@ public class Context
                                 if(file.equals(m_file))
                                 {
                                     String includeFile = m_scopeFile;
+                                    /*
                                     // Remove relative directory if is equal that where the processed IDL is.
                                     if(m_directoryFile != null && startsWith(includeFile, m_directoryFile))
                                         includeFile = includeFile.substring(m_directoryFile.length());
                                     // Remove relative directory if is equal to a include path.
+                                    */
                                     for(int i = 0; i < m_includePaths.size(); ++i)
                                     {
                                         if(startsWith(includeFile, m_includePaths.get(i)))
