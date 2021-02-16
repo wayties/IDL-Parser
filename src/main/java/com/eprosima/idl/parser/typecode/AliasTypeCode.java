@@ -84,6 +84,11 @@ public class AliasTypeCode extends ContainerTypeCode
         if(m_scope.isEmpty())
             return m_name;
 
+        String[] strs = m_scope.split("::");
+        if (strs.length > 2) {
+            return strs[0] + "::" + strs[1] + "::dds_::" + m_name + "_";
+        }
+
         return m_scope + "::dds_::" + m_name + "_";
     }
 
