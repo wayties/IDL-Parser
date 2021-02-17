@@ -43,15 +43,32 @@ public abstract class MemberedTypeCode extends TypeCode
 
     public String getROS2Scopedname()
     {
-        if(m_scope.isEmpty())
-            return m_name;
+        String newName = "";
+
+        String[] names = m_name.split("_");
+        if (names.length > 0) {
+            for (String name : names) {
+                if (name.length() >= 2 && Character.isUpperCase(name.charAt(0)) && Character.isLowerCase(name.charAt(1))) {
+                    newName += name;
+                }
+                else {
+                    newName += name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+                }
+            }
+        }
+        else {
+            newName = m_name;
+        }
+
+        if(m_scope == null || m_scope.isEmpty())
+            return newName;
 
         String[] strs = m_scope.split("::");
         if (strs.length > 2) {
-            return strs[0] + "::" + strs[1] + "::dds_::" + m_name + "_";
+            return strs[0] + "::" + strs[1] + "::dds_::" + newName + "_";
         }
 
-        return m_scope + "::dds_::" + m_name + "_";
+        return m_scope + "::dds_::" + newName + "_";
     }
 
     public String getCScopedname()
