@@ -60,6 +60,8 @@ public abstract class MemberedTypeCode extends TypeCode
             newName = m_name;
         }
 
+        return newName;
+/*
         if(m_scope == null || m_scope.isEmpty())
             return newName;
 
@@ -69,6 +71,7 @@ public abstract class MemberedTypeCode extends TypeCode
         }
 
         return m_scope + "::dds_::" + newName + "_";
+*/
     }
 
     public String getCScopedname()

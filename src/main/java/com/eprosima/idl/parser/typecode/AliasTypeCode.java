@@ -98,6 +98,8 @@ public class AliasTypeCode extends ContainerTypeCode
             newName = m_name;
         }
 
+        return newName;
+/*
         if(m_scope == null || m_scope.isEmpty())
             return newName;
 
@@ -107,6 +109,7 @@ public class AliasTypeCode extends ContainerTypeCode
         }
 
         return m_scope + "::dds_::" + newName + "_";
+*/
     }
 
     public String getScope()

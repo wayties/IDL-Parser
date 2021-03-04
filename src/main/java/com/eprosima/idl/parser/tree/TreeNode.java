@@ -75,6 +75,8 @@ public class TreeNode implements Notebook
             newName = m_name;
         }
 
+        return newName;
+/*
         if(m_scope == null || m_scope.isEmpty())
             return newName;
 
@@ -84,6 +86,7 @@ public class TreeNode implements Notebook
         }
 
         return m_scope + "::dds_::" + newName + "_";
+*/
     }
 
     public String getCScopedname()
