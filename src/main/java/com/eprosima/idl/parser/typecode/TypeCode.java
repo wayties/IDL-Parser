@@ -261,16 +261,6 @@ public abstract class TypeCode implements Notebook
         return false;
     }
 
-    public boolean isAnnotationPacked()
-    {
-        Annotation ann = m_annotations.get("packed");
-        if (ann != null)
-        {
-            return ann.getValue().toUpperCase().equals("TRUE");
-        }
-        return false;
-    }
-
     public boolean isForwarded()
     {
         return m_forwarded;

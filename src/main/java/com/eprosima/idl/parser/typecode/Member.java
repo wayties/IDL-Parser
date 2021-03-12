@@ -156,6 +156,21 @@ public class Member implements Notebook
         return false;
     }
 
+    public Short getAnnotationEnumBound()
+    {
+        Annotation ann = m_annotations.get("enum_bound");
+        if (ann != null)
+        {
+            String value = ann.getValue();
+            if (value.equals("-1"))
+            {
+                return null;
+            }
+            return Short.parseShort(value);
+        }
+        return null;
+    }
+
     public Short getAnnotationBitBound()
     {
         Annotation ann = m_annotations.get("bit_bound");

@@ -206,11 +206,11 @@ public class Context
         AnnotationDeclaration maxann = createAnnotationDeclaration("max", null);
         maxann.addMember(new AnnotationMember("value", new AnyTypeCode(), null));
 
+        AnnotationDeclaration enum_boundann = createAnnotationDeclaration("enum_bound", null);
+        enum_boundann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_USHORT), "-1"));
+
         AnnotationDeclaration bit_boundann = createAnnotationDeclaration("bit_bound", null);
         bit_boundann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_USHORT), "-1"));
-
-        AnnotationDeclaration packedann = createAnnotationDeclaration("packed", null);
-        packedann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_BOOLEAN), "true"));
 
         AnnotationDeclaration externalann = createAnnotationDeclaration("external", null);
         externalann.addMember(new AnnotationMember("value", new PrimitiveTypeCode(Kind.KIND_BOOLEAN), "true"));

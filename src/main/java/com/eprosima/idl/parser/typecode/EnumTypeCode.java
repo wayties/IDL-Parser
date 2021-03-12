@@ -14,6 +14,9 @@
 
 package com.eprosima.idl.parser.typecode;
 
+import com.eprosima.idl.parser.tree.Annotation;
+import com.eprosima.idl.context.Context;
+
 import org.antlr.stringtemplate.StringTemplate;
 
 
@@ -121,7 +124,81 @@ public class EnumTypeCode extends MemberedTypeCode
     @Override
     public String getSize()
     {
+        if (m_enum_bound <= 8)
+        {
+            return "1";
+        }
+        else if (m_enum_bound <= 16)
+        {
+            return "2";
+        }
+        else if (m_enum_bound <= 32)
+        {
+            return "4";
+        }
+        else if (m_enum_bound <= 64)
+        {
+            return "8";
+        }
         return "4";
     }
 
+    public int getEnumBound()
+    {
+        return m_enum_bound;
+    }
+
+    public String getBoundType()
+    {
+        if (m_enum_bound <= 8)
+        {
+            return " : uint8_t";
+        }
+        else if (m_enum_bound <= 16)
+        {
+            return " : uint16_t";
+        }
+        else if (m_enum_bound <= 32)
+        {
+            return " : uint32_t";
+        }
+        else if (m_enum_bound <= 64)
+        {
+            return " : uint64_t";
+        }
+        return "";
+    }
+
+    public String getCastingType()
+    {
+        if (m_enum_bound <= 8)
+        {
+            return "uint8_t";
+        }
+        else if (m_enum_bound <= 16)
+        {
+            return "uint16_t";
+        }
+        else if (m_enum_bound <= 32)
+        {
+            return "uint32_t";
+        }
+        else if (m_enum_bound <= 64)
+        {
+            return "uint64_t";
+        }
+        return "";
+    }
+
+    @Override
+    public void addAnnotation(Context ctx, Annotation annotation)
+    {
+        super.addAnnotation(ctx, annotation);
+        if (annotation.getName().equals("enum_bound"))
+        {
+            m_enum_bound = Integer.parseInt(annotation.getValue());
+        }
+    }
+
+    private Integer m_enum_bound = 32;
 }
