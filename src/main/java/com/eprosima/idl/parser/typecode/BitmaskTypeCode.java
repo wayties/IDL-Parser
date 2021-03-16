@@ -52,6 +52,13 @@ public class BitmaskTypeCode extends MemberedTypeCode
     public boolean isObjectType() { return true; }
 
     @Override
+    public boolean isIsPlain() { return true; }
+
+    @Override
+    public boolean isIsBounded() { return false; }
+
+
+    @Override
     public String getSize()
     {
         if (m_bit_bound <= 8)
